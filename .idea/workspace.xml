@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ea897969-4723-4d30-89d0-a01748662c7b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Problem_28_Memory_Manager/src/FreeList$FreeNode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Problem_28_Memory_Manager/src/FreeList.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Problem_28_Memory_Manager/src/GarbageCollector.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Problem_28_Memory_Manager/src/GarbageCollector.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Problem_28_Memory_Manager/src/HeapManager.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Problem_28_Memory_Manager/src/InStack.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Problem_28_Memory_Manager/src/InStack.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Problem_28_Memory_Manager/src/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Problem_28_Memory_Manager/src/MemoryBlock.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Problem_28_Memory_Manager/src/RootSet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Problem_28_Memory_Manager/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Problem_28_Memory_Manager/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Problem_28_Memory_Manager/src/FreeList.java" beforeDir="false" afterPath="$PROJECT_DIR$/Problem_28_Memory_Manager/src/FreeList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Problem_28_Memory_Manager/src/GarbageCollactor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Problem_28_Memory_Manager/src/HeapManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Problem_28_Memory_Manager/src/HeapManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Problem_28_Memory_Manager/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Problem_28_Memory_Manager/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Problem_28_Memory_Manager/src/MemoryBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/Problem_28_Memory_Manager/src/MemoryBlock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Problem_28_Memory_Manager/src/RootSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Problem_28_Memory_Manager/src/RootSet.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "git-widget-placeholder": "Merging martha",
+    "node.js.selected.package.tslint": "(autodetect)"
+  }
+}]]></component>
+  <component name="TaskManager">
+    <servers />
+  </component>
+</project>
