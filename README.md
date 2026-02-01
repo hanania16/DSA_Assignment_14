@@ -1,16 +1,3 @@
-Great question 👌
-Yes — the **main (root) README.md** is important. It’s the *first thing* your instructor will see, so it should explain **what this project is, what’s inside, and how to run it**.
-
-Below is a **clean, professional, submission-ready `README.md`** for the **main folder**.
-
-You can copy-paste this directly into:
-
-```
-DSA_Assignment_14/README.md
-```
-
----
-
 # DSA Assignment 14
 
 **Data Structures & Algorithms – Java Implementation**
@@ -19,7 +6,11 @@ DSA_Assignment_14/README.md
 
 ## Student Informations
 
-* **Name:** Hanania Meseret, Martha Habtamu, Yeabsira Metiku
+  * **Name:** 
+1. Hanania Meseret, 
+3. Martha Habtamu, 
+3. Yeabsira Metiku
+
 * **Section:** 2
 * **Course:** Data Structures and Algorithms
 * **Assignment:** 14
