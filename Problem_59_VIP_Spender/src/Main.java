@@ -6,33 +6,39 @@ public class Main {
         VIPSpenderTracker tracker = new VIPSpenderTracker();
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("VIP Spender Tracker Started");
-        System.out.println("Commands:");
-        System.out.println("PURCHASE <user> <amount>");
-        System.out.println("SHOW_VIP");
-        System.out.println("EXIT");
-
         while (true) {
-            String line = sc.nextLine().trim();
-            String[] parts = line.split(" ");
+            System.out.println("\n===== VIP Spender Tracker =====");
+            System.out.println("1. Add Purchase");
+            System.out.println("2. Show VIP Spenders");
+            System.out.println("3. Exit");
+            System.out.print("Enter your choice: ");
 
-            if (parts[0].equalsIgnoreCase("PURCHASE")) {
-                String user = parts[1];
-                int amount = Integer.parseInt(parts[2]);
-                tracker.purchase(user, amount);
-            }
-            else if (parts[0].equalsIgnoreCase("SHOW_VIP")) {
-                tracker.showVIP();
-            }
-            else if (parts[0].equalsIgnoreCase("EXIT")) {
-                System.out.println("Exiting...");
-                break;
-            }
-            else {
-                System.out.println("Invalid Command");
+            int choice = sc.nextInt();
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter User ID: ");
+                    String user = sc.next();
+
+                    System.out.print("Enter Amount: ");
+                    int amount = sc.nextInt();
+
+                    tracker.purchase(user, amount);
+                    System.out.println("Purchase added successfully.");
+                    break;
+
+                case 2:
+                    tracker.showVIP();
+                    break;
+
+                case 3:
+                    System.out.println("Exiting...");
+                    sc.close();
+                    return;
+
+                default:
+                    System.out.println("Invalid choice. Try again.");
             }
         }
-
-        sc.close();
     }
 }

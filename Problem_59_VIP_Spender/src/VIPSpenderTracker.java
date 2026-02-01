@@ -43,12 +43,21 @@ public class VIPSpenderTracker {
     }
 
     public void showVIP() {
-        List<UserSpend> list = new ArrayList<>(minHeap);
-        list.sort((a, b) -> b.totalSpend - a.totalSpend);
-
-        System.out.println("Top " + K + " VIP Spenders:");
-        for (UserSpend us : list) {
-            System.out.println(us.userId + " (" + us.totalSpend + ")");
-        }
+    if (minHeap.isEmpty()) {
+        System.out.println("No VIP spenders yet.");
+        return;
     }
+
+    List<UserSpend> list = new ArrayList<>(minHeap);
+    list.sort((a, b) -> b.totalSpend - a.totalSpend);
+
+    System.out.println("Top " + K + " VIP Spenders:");
+
+    int rank = 1;
+    for (UserSpend us : list) {
+        System.out.println(rank + ". " + us.userId + " (" + us.totalSpend + ")");
+        rank++;
+    }
+}
+
 }
