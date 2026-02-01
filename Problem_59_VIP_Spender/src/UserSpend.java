@@ -1,9 +1,9 @@
 public class UserSpend {
-    String user;
-    int total;
+    String userId;
+    int totalSpend;
 
-    public UserSpend(String user, int total) {
-        this.user = user;
-        this.total = total;
+    public UserSpend(String userId, int totalSpend) {
+        this.userId = userId;
+        this.totalSpend = totalSpend;
     }
 }

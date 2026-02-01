@@ -3,26 +3,33 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        VIPTracker tracker = new VIPTracker();
+        VIPSpenderTracker tracker = new VIPSpenderTracker();
         Scanner sc = new Scanner(System.in);
 
+        System.out.println("VIP Spender Tracker Started");
+        System.out.println("Commands:");
+        System.out.println("PURCHASE <user> <amount>");
+        System.out.println("SHOW_VIP");
+        System.out.println("EXIT");
+
         while (true) {
-            String command = sc.next();
+            String line = sc.nextLine().trim();
+            String[] parts = line.split(" ");
 
-            if (command.equalsIgnoreCase("PURCHASE")) {
-                String user = sc.next();
-                int amount = sc.nextInt();
+            if (parts[0].equalsIgnoreCase("PURCHASE")) {
+                String user = parts[1];
+                int amount = Integer.parseInt(parts[2]);
                 tracker.purchase(user, amount);
-
-            } else if (command.equalsIgnoreCase("SHOW_VIP")) {
+            }
+            else if (parts[0].equalsIgnoreCase("SHOW_VIP")) {
                 tracker.showVIP();
-
-            } else if (command.equalsIgnoreCase("EXIT")) {
-                System.out.println("Exiting VIP Tracker...");
+            }
+            else if (parts[0].equalsIgnoreCase("EXIT")) {
+                System.out.println("Exiting...");
                 break;
-
-            } else {
-                System.out.println("Invalid command.");
+            }
+            else {
+                System.out.println("Invalid Command");
             }
         }
 
