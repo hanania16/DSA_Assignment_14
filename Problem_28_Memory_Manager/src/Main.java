@@ -1,90 +1,99 @@
-
-
 import java.util.Scanner;
 
 public class Main {
-
     public static void main(String[] args) {
-
         Scanner sc = new Scanner(System.in);
+        MemoryManager manager = null;
 
-        int heapSize = 5;
-        HeapManager heap = new HeapManager(heapSize);
-        RootSet roots = new RootSet(heapSize);
-        GarbageCollector gc = new GarbageCollector(heap, roots);
-
-        System.out.println("Memory Block Manager Started");
-        System.out.println("Commands: ALLOC, REF, ROOT, UNROOT, GC, STATUS, EXIT");
+        System.out.println("===== Memory Block Manager (Mark-Sweep Simulation) =====");
 
         while (true) {
-            System.out.print("> ");
-            String input = sc.nextLine().trim();
-            String[] parts = input.split(" ");
+            System.out.println("\nMenu:");
+            System.out.println("1. Set Heap Size");
+            System.out.println("2. Allocate Block");
+            System.out.println("3. Add Reference");
+            System.out.println("4. Add Root");
+            System.out.println("5. Remove Root");
+            System.out.println("6. Run Garbage Collection (GC)");
+            System.out.println("7. Show Heap Status");
+            System.out.println("8. Exit");
+            System.out.print("Enter your choice (1-8): ");
 
-            if (parts.length == 0) continue;
+            String choice = sc.nextLine().trim();
 
-            String command = parts[0].toUpperCase();
-
-            switch (command) {
-
-                case "ALLOC":
-                    int index = heap.allocateBlock();
-                    if (index == -1) {
-                        System.out.println("Heap full! Run GC to free blocks.");
-                    } else {
-                        System.out.println("Block allocated at index " + index);
-                    }
+            switch (choice) {
+                case "1":
+                    System.out.print("Enter heap size: ");
+                    int size = Integer.parseInt(sc.nextLine());
+                    manager = new MemoryManager(size);
+                    System.out.println("Heap size set to " + size);
                     break;
 
-                case "REF":
-                    if (parts.length < 3) {
-                        System.out.println("Usage: REF <fromIndex> <toIndex>");
+                case "2":
+                    if (manager == null) {
+                        System.out.println("Set heap size first!");
                         break;
                     }
-                    int from = Integer.parseInt(parts[1]);
-                    int to = Integer.parseInt(parts[2]);
-                    heap.addReference(from, to);
+                    System.out.print("Enter block ID to allocate: ");
+                    String blockId = sc.nextLine().trim();
+                    manager.alloc(blockId);
                     break;
 
-                case "ROOT":
-                    if (parts.length < 2) {
-                        System.out.println("Usage: ROOT <blockIndex>");
+                case "3":
+                    if (manager == null) {
+                        System.out.println("Set heap size first!");
                         break;
                     }
-                    int rootIndex = Integer.parseInt(parts[1]);
-                    roots.addRoot(rootIndex);
-                    System.out.println("Block " + rootIndex + " added to roots");
+                    System.out.print("Enter FROM block ID: ");
+                    String from = sc.nextLine().trim();
+                    System.out.print("Enter TO block ID: ");
+                    String to = sc.nextLine().trim();
+                    manager.ref(from, to);
                     break;
 
-                case "UNROOT":
-                    if (parts.length < 2) {
-                        System.out.println("Usage: UNROOT <blockIndex>");
+                case "4":
+                    if (manager == null) {
+                        System.out.println("Set heap size first!");
                         break;
                     }
-                    int unrootIndex = Integer.parseInt(parts[1]);
-                    roots.removeRoot(unrootIndex);
-                    System.out.println("Block " + unrootIndex + " removed from roots");
+                    System.out.print("Enter block ID to add as root: ");
+                    String rootId = sc.nextLine().trim();
+                    manager.root(rootId);
                     break;
 
-                case "GC":
-                    System.out.println("Running Garbage Collection...");
-                    gc.gc();
+                case "5":
+                    if (manager == null) {
+                        System.out.println("Set heap size first!");
+                        break;
+                    }
+                    System.out.print("Enter block ID to remove from roots: ");
+                    String unrootId = sc.nextLine().trim();
+                    manager.unroot(unrootId);
                     break;
 
-                case "STATUS":
-                    heap.printHeapStatus();
-                    roots.printRoots();
+                case "6":
+                    if (manager == null) {
+                        System.out.println("Set heap size first!");
+                        break;
+                    }
+                    manager.gc();
                     break;
 
-                case "EXIT":
+                case "7":
+                    if (manager == null) {
+                        System.out.println("Set heap size first!");
+                        break;
+                    }
+                    manager.status();
+                    break;
+
+                case "8":
                     System.out.println("Exiting...");
-                    sc.close();
                     return;
 
                 default:
-                    System.out.println("Unknown command");
+                    System.out.println("Invalid choice! Please enter 1-8.");
             }
         }
     }
 }
-

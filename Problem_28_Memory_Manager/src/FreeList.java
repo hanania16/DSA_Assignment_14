@@ -1,37 +1,18 @@
-
-
+import java.util.LinkedList;
 
 public class FreeList {
+    private LinkedList<Integer> freeBlocks = new LinkedList<>();
 
-    class FreeNode {
-        int index;
-        FreeNode next;
-
-        FreeNode(int index) {
-            this.index = index;
-            this.next = null;
-        }
+    public void add(int index) {
+        freeBlocks.add(index);
     }
 
-        private FreeNode head;
-
-        public void add(int index) {
-            FreeNode node = new FreeNode(index);
-            node.next = head;
-            head = node;
-        }
-
-        public int get() {
-            if (head == null) return -1;
-            int index = head.index;
-            head = head.next;
-            return index;
-        }
-
-        public boolean isEmpty() {
-            return head == null;
-        }
+    public Integer getFreeBlock() {
+        if (freeBlocks.isEmpty()) return null;
+        return freeBlocks.removeFirst(); // First-Fit
     }
 
-
-
+    public boolean isEmpty() {
+        return freeBlocks.isEmpty();
+    }
+}

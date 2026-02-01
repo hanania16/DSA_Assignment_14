@@ -1,28 +1,19 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class MemoryBlock {
-        boolean allocated;
-        boolean visited;
-        int[] references;
-        int refCount;
+    String id;
+    boolean allocated;
+    boolean visited;
+    List<Integer> references;
 
-        public MemoryBlock() {
-            allocated = false;
-            visited = false;
-            references = new int[10];
-            refCount = 0;
-        }
-
-        public void addReference(int index) {
-            references[refCount++] = index;
-        }
-
-        public void clearReferences() {
-            refCount = 0;
-        }
-
-
+    public MemoryBlock() {
+        this.allocated = false;
+        this.visited = false;
+        this.references = new ArrayList<>();
     }
 
-
-
-
-
+    public void reset() {
+        visited = false;
+    }
+}
