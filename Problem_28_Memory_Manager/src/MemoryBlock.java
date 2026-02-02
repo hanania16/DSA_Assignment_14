@@ -1,8 +1,4 @@
-package Problem_28_Memory_Manager.src;
-
 public class MemoryBlock {
-
-    public class MemoryBlock {
         boolean allocated;
         boolean visited;
         int[] references;
@@ -22,7 +18,10 @@ public class MemoryBlock {
         public void clearReferences() {
             refCount = 0;
         }
+
+
     }
+
 
 
 

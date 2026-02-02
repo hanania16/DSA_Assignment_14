@@ -1,4 +1,4 @@
-package Problem_28_Memory_Manager.src;
+
 
 
 public class FreeList {
@@ -13,7 +13,6 @@ public class FreeList {
         }
     }
 
-    public class FreeList {
         private FreeNode head;
 
         public void add(int index) {
@@ -34,5 +33,5 @@ public class FreeList {
         }
     }
 
-}
+
 

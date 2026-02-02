@@ -1,4 +1,6 @@
-public class IntStack {
+
+
+public class InStack {
 
     private int[] stack;
     private int top;

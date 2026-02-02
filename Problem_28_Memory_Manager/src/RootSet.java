@@ -1,4 +1,4 @@
-package Problem_28_Memory_Manager.src;
+
 
 public class RootSet {
 
@@ -11,9 +11,7 @@ public class RootSet {
     }
 
     public void addRoot(int index) {
-        for (int i = 0; i < count; i++) {
-            if (roots[i] == index) return;
-        }
+        for (int i = 0; i < count; i++) if (roots[i] == index) return;
         roots[count++] = index;
     }
 
@@ -32,6 +30,9 @@ public class RootSet {
         for (int i = 0; i < count; i++) result[i] = roots[i];
         return result;
     }
+    public int getCount() {
+        return count;
+    }
 
     public void printRoots() {
         System.out.print("Roots: [");
@@ -42,8 +43,6 @@ public class RootSet {
         System.out.println("]");
     }
 
-    public int getCount() {
-        return count;
-    }
+
 }
 

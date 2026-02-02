@@ -1,5 +1,4 @@
-package Problem_28_Memory_Manager.src;
-import java.util.Set;
+
 
 public class GarbageCollector {
 
@@ -11,20 +10,16 @@ public class GarbageCollector {
         this.rootSet = rootSet;
     }
 
-    public void runGC() {
-        System.out.println("--- Mark Phase ---");
+    public void gc() {
         mark();
-        System.out.println("--- Sweep Phase ---");
         sweep();
     }
 
     private void mark() {
         InStack stack = new InStack(heapManager.getHeap().length);
-
         int[] roots = rootSet.getRoots();
-        int rootCount = rootSet.getRootCount();
+        int rootCount = rootSet.getCount();
 
-        // Push all roots onto the stack
         for (int i = 0; i < rootCount; i++) {
             int rootIndex = roots[i];
             if (!heapManager.getHeap()[rootIndex].visited) {
@@ -50,22 +45,21 @@ public class GarbageCollector {
         }
     }
 
-
     private void sweep() {
-        int freedCount = 0;
         MemoryBlock[] heap = heapManager.getHeap();
+        int freed = 0;
 
         for (int i = 0; i < heap.length; i++) {
             MemoryBlock block = heap[i];
             if (block.allocated && !block.visited) {
                 heapManager.freeBlock(i);
-                freedCount++;
-                System.out.println("Block " + i + " is unreachable. FREED.");
+                freed++;
+                System.out.println("Block " + i + " freed");
             } else if (block.allocated) {
-                block.visited = false;
+                block.visited = false; // reset for next GC
             }
         }
 
-        System.out.println("Freed " + freedCount + " block(s).");
+        System.out.println("Freed " + freed + " block(s).");
     }
 }
