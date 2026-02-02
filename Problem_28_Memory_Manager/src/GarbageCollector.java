@@ -56,7 +56,7 @@ public class GarbageCollector {
                 freed++;
                 System.out.println("Block " + i + " freed");
             } else if (block.allocated) {
-                block.visited = false; // reset for next GC
+                block.visited = false;
             }
         }
 
